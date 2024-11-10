@@ -34,7 +34,7 @@ CREATE TABLE member (
 -- @block
 CREATE TABLE bank_details (
   member_id INT NOT NULL, 
-  card_number INT,
+  card_number VARCHAR(19),
   exp_date VARCHAR(32),
   CONSTRAINT pk_bank_details PRIMARY KEY (member_id),
   FOREIGN KEY (member_id) REFERENCES member(member_id)
@@ -62,7 +62,7 @@ CREATE TABLE tutorial (
 CREATE TABLE video_tutorial (
   tutorial_id INT NOT NULL,
   duration INT,
-  url VARCHAR(32),
+  url VARCHAR(2083),
   CONSTRAINT pk_video_tutorial PRIMARY KEY (tutorial_id)
 );
 
@@ -89,4 +89,3 @@ ALTER TABLE recommend ADD CONSTRAINT fk_recommended_video FOREIGN KEY (recommend
 
 -- @block
 ALTER TABLE video_tutorial ADD CONSTRAINT fk_video_tutorial FOREIGN KEY (tutorial_id) REFERENCES tutorial(tutorial_id);
-
