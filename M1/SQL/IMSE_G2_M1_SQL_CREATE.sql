@@ -37,12 +37,12 @@ CREATE TABLE bank_details (
   card_number VARCHAR(19),
   exp_date VARCHAR(32),
   CONSTRAINT pk_bank_details PRIMARY KEY (member_id),
-  FOREIGN KEY (member_id) REFERENCES member(member_id)
+  FOREIGN KEY (member_id) REFERENCES member(member_id) ON DELETE CASCADE
 );
 
 -- @block
 CREATE TABLE location (
-  location_id INT NOT NULL,
+  location_id INT AUTO_INCREMENT,
   manager_name VARCHAR(32),
   address VARCHAR(32),
   CONSTRAINT pk_location PRIMARY KEY (location_id)
@@ -79,6 +79,11 @@ ALTER TABLE saved ADD CONSTRAINT fk_save_tutorial FOREIGN KEY (tutorial_id) REFE
 
 -- @block
 ALTER TABLE saved ADD CONSTRAINT fk_save_member FOREIGN KEY (member_id) REFERENCES member(member_id);
+
+-- @block
+-- For the weak entity bank_details
+ALTER TABLE bank_details ADD CONSTRAINT fk_bank_details_member_id FOREIGN KEY (member_id)
+REFERENCES member (member_id) ON DELETE CASCADE;
 
 -- @block
 -- For the recommend unary relation
