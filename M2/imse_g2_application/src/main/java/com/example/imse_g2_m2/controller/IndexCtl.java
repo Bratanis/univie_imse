@@ -2,7 +2,9 @@ package com.example.imse_g2_m2.controller;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.imse_g2_m2.model.Location;
@@ -24,6 +26,7 @@ import lombok.AllArgsConstructor;
  *  
  */
 @RestController
+@CrossOrigin // Will allow the front-end to access the back-end
 @AllArgsConstructor
 // @RequestMapping ("") // Set this to the endpoint of a certain user that is logged in
 public class IndexCtl {
@@ -56,6 +59,11 @@ public class IndexCtl {
 	@GetMapping("/members")
 	public List <Member> getAllMembers (){
 		return memberService.getAllMembers();
+	}
+	
+	@GetMapping("/members/{memberId}")
+	public Member getMemberById (@PathVariable int memberId){
+		return memberService.getMemberById(memberId);
 	}
 	
 	@GetMapping("/tutorials")
