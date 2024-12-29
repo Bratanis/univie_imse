@@ -1,6 +1,6 @@
 package com.example.imse_g2_m2.model;
 
-import java.util.Date;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -36,5 +36,6 @@ public class BankDetails {
 	@OneToOne
     @MapsId
     @JoinColumn(name = "member_id")
+	@JsonBackReference // Breaks cyclic reference
     private Member member;
 }
