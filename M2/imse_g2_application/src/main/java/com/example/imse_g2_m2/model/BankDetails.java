@@ -2,6 +2,7 @@ package com.example.imse_g2_m2.model;
 
 import java.util.Date;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -23,11 +24,14 @@ import lombok.NoArgsConstructor;
 public class BankDetails {
 
 	@Id
+	@Column (name="member_id")
 	private int memberId;
 	 
-	private int cardNumber;
-	
-	private Date expirationDate;
+	@Column(name = "card_number", nullable = false)
+    private String cardNumber; 
+
+    @Column(name = "exp_date", nullable = false)
+    private String expDate;
 	
 	@OneToOne
     @MapsId

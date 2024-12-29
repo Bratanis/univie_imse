@@ -1,5 +1,6 @@
 package com.example.imse_g2_m2.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -24,8 +25,14 @@ public class Tutorial {
     private int tutorialId;
 
     protected String name;
+
+    @Column(name = "muscle_group")
     protected String muscleGroup;
+    
+    @Column(name = "difficulty_level")
     protected String difficultyLevel;
+    
+    @Column(length = 2048)
     protected String description;
 	    
 }
