@@ -7,6 +7,11 @@ declare global {
 		// interface PageData {}
 		// interface PageState {}
 		// interface Platform {}
+		// 
+
+		interface PageData {
+            member?: import('$types/Member').Member;
+        }
 	}
 }
 
