@@ -29,16 +29,12 @@ import lombok.AllArgsConstructor;
 @CrossOrigin // Will allow the front-end to access the back-end
 @AllArgsConstructor
 // @RequestMapping ("") // Set this to the endpoint of a certain user that is logged in
-public class IndexCtl {
+public class HomeCtl {
 
 	private LocationService locationService;
 	private MemberService memberService;
 	private TutorialService tutorialService;
 
-//	public IndexCtl(LocationService locationService) {
-//		super();
-//		this.locationService = locationService;
-//	}
 
 	@GetMapping("/")
 	public String initialGreeting() {
@@ -51,7 +47,7 @@ public class IndexCtl {
 	}
 	
 	@GetMapping("/locations")
-	public List<Location> getAllLocations () {
+	public List<Location> getAllLocations (){
 		
 		return locationService.getAllLocations();
 	}
