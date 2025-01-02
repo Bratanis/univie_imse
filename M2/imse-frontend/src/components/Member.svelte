@@ -1,6 +1,6 @@
 <script lang="ts">
     import { onMount } from 'svelte';
-    import type { Member } from '$types/Member';
+    import type { Member } from '$lib/types/Member';
 
     let member: Member | null = null;
 

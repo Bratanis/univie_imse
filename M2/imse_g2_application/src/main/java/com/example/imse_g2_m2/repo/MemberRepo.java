@@ -8,4 +8,5 @@ import com.example.imse_g2_m2.model.Member;
 @Repository
 public interface MemberRepo extends JpaRepository<Member, Integer>{
 
+	//Member findByName(String username);
 }
