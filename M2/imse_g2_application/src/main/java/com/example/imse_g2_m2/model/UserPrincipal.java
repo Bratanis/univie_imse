@@ -23,12 +23,14 @@ public class UserPrincipal implements UserDetails{
 
 	@Override
 	public String getPassword() {
-		return memberData.getPassword();
+		return "";
+		//return memberData.getPassword();
 	}
 
 	@Override
 	public String getUsername() {
-		return memberData.getName();
+		return "";
+		//return memberData.getName();
 	}
 
 }

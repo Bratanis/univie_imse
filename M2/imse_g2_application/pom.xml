@@ -51,9 +51,9 @@
 			<optional>true</optional>
 		</dependency>
 		<dependency>
-			<groupId>org.mariadb.jdbc</groupId>
-			<artifactId>mariadb-java-client</artifactId>
-			<scope>runtime</scope>
+            <groupId>org.mariadb.jdbc</groupId>
+            <artifactId>mariadb-java-client</artifactId>
+            <version>3.5.1</version> <!-- Replace with the latest version -->
 		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -69,6 +69,41 @@
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
+		<!-- Apache POI Core -->
+    <dependency>
+        <groupId>org.apache.poi</groupId>
+        <artifactId>poi</artifactId>
+        <version>5.2.3</version> <!-- Use the latest stable version -->
+    </dependency>
+
+    <!-- Apache POI for Excel (.xlsx) -->
+    <dependency>
+        <groupId>org.apache.poi</groupId>
+        <artifactId>poi-ooxml</artifactId>
+        <version>5.2.3</version> <!-- Use the same version as above -->
+    </dependency>
+
+    <!-- Apache POI OOXML Schema -->
+    <dependency>
+        <groupId>org.apache.xmlbeans</groupId>
+        <artifactId>xmlbeans</artifactId>
+        <version>5.1.1</version>
+    </dependency>
+
+    <!-- Apache POI dependencies for handling compression -->
+    <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-compress</artifactId>
+        <version>1.21</version>
+    </dependency>
+    
+    <dependency>
+        <groupId>com.github.javafaker</groupId>
+        <artifactId>javafaker</artifactId>
+        <version>1.0.2</version>  <!-- Use the latest version -->
+    </dependency>
+
 	</dependencies>
 
 	<build>
