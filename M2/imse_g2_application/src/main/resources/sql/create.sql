@@ -102,10 +102,60 @@ ALTER TABLE recommend ADD CONSTRAINT fk_recommended_video FOREIGN KEY (recommend
 -- completely new
 ALTER TABLE video_tutorial ADD CONSTRAINT fk_video_tutorial FOREIGN KEY (tutorial_id) REFERENCES tutorial(tutorial_id);
 
-DROP TABLE IF EXISTS bank_details;  
- DROP TABLE IF EXISTS saved;                               
- DROP TABLE IF EXISTS member; 
- DROP TABLE IF EXISTS location;                    
- DROP TABLE IF EXISTS recommend;                     
- DROP TABLE IF EXISTS video_tutorial;                     
- DROP TABLE IF EXISTS tutorial;                     
+{
+  member_id: 1
+  name: 'Viktor Plumb',
+  age: 20,
+  password: 'tonibonboni20',
+  bank_details: {
+    card_number: '4790 1390 2215 0578',
+    exp_date: '31/12/2024'
+  },
+  location: {
+    location_id: 10,
+    adress: 'Vienna, Waehringerstrasse 29'
+  },
+  saved_tutorial: [
+    {
+      tutorial_id: 25,
+      tutorial_name: 'Biceps tutorial',
+      muscle_group: 'Biceps',
+      diff_level: 'beginner',
+      dexcription: 'This exercise make your biceps very strong.',
+      length: 5,
+      URL: 'https:/biceps_tutorial'
+    }
+  ]
+}
+
+{
+	location_id: 1,
+	address: "Sonnenalle 220, Vienna",
+	manager_name: "Cristian Lebowski",
+	members: [
+		{
+			member_id: 1,
+			name: "Viktor Plumb"
+		},
+		{
+			member_id: 2,
+			name: "Kassandra Skarlet"
+		}
+	]
+}
+
+{
+	tutorial_id: 1,
+	name: "Bench press",
+	muscle_group: "Breast",
+	diff_level: "beginner",
+	description: "This tutorial is about bench press.",
+	length: 24,
+	recommends: [
+		{
+			tutorial_id: 5,
+			tutorial_name: "Squads",
+			tutorial_link: "https://squads.com"
+		}
+	]
+}

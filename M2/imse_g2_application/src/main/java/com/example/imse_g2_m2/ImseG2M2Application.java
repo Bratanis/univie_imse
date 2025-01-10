@@ -1,5 +1,6 @@
 package com.example.imse_g2_m2;
 
+import com.example.imse_g2_m2.migrator.MariaDBToMongoDBMigration;
 import com.example.imse_g2_m2.util.MariaDBDatabasePopulator;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,8 +13,15 @@ public class ImseG2M2Application {
         //SpringApplication.run(ImseG2M2Application.class, args);
 
         // Run the MariaDBDatabasePopulator to populate the database
-        try {
+        /*try {
             MariaDBDatabasePopulator.main(args);  // Call the main method of your database populator
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.err.println("Error populating the database: " + e.getMessage());
+        }*/
+        
+        try {
+        	MariaDBToMongoDBMigration.main(args); 
         } catch (Exception e) {
             e.printStackTrace();
             System.err.println("Error populating the database: " + e.getMessage());
