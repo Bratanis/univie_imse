@@ -13,6 +13,7 @@ import com.example.imse_g2_m2.model.Tutorial;
 import com.example.imse_g2_m2.service.LocationService;
 import com.example.imse_g2_m2.service.MemberService;
 import com.example.imse_g2_m2.service.TutorialService;
+import com.example.imse_g2_m2.util.MariaDBDatabasePopulator;
 
 import lombok.AllArgsConstructor;
 
@@ -34,6 +35,8 @@ public class HomeCtl {
 	private LocationService locationService;
 	private MemberService memberService;
 	private TutorialService tutorialService;
+	
+	private MariaDBDatabasePopulator dataPopulator;
 
 
 	@GetMapping("/")
@@ -66,4 +69,10 @@ public class HomeCtl {
 	public List<Tutorial> getAllTutorials (){
 		return tutorialService.getAllTutorials();
 	}
+	
+	@GetMapping("/populate")
+	public void populateMariaDb () {
+		dataPopulator.insertData();
+	}
+	
 }

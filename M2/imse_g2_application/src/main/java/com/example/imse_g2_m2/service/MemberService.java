@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.example.imse_g2_m2.exceptions.MemberNotFoundException;
+import com.example.imse_g2_m2.model.Location;
 import com.example.imse_g2_m2.model.Member;
 import com.example.imse_g2_m2.repo.MemberRepo;
 
@@ -14,7 +15,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class MemberService {
 
-private MemberRepo repo;
+    private MemberRepo repo;
 	
 	public List<Member> getAllMembers() {
 		
@@ -25,5 +26,13 @@ private MemberRepo repo;
 		
 		return repo.findById(memberId)
                    .orElseThrow(() -> new MemberNotFoundException("Member with ID " + memberId + " not found"));
+	}
+	
+	public void insertMember(Member member) {
+		repo.save(member);
+	}
+	
+	public void clearMember() {
+		repo.deleteAll();
 	}
 }

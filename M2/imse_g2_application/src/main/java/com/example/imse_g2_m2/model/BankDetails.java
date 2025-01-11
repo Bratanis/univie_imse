@@ -37,4 +37,9 @@ public class BankDetails {
     @JoinColumn(name = "member_id")
 	@JsonBackReference // Breaks cyclic reference
     private Member member;
+	
+	public BankDetails(String cardNumber, String expDate) {
+		this.cardNumber = cardNumber;
+		this.expDate = expDate;
+	}
 }

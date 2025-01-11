@@ -25,4 +25,8 @@ public class Location {
     private String managerName;
     private String address;
 	
+    public Location(String managerName, String address) {
+    	this.managerName = managerName;
+    	this.address = address;
+    }
 }

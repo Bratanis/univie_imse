@@ -59,5 +59,14 @@ public class Member {
         joinColumns = @JoinColumn(name = "member_id"),
         inverseJoinColumns = @JoinColumn(name = "tutorial_id")
     )
-	private List<Tutorial> saved_tutorials;
+	private List<Tutorial> savedTutorials;
+	
+	public Member(String name, int age, String password, BankDetails bankDetails, Location location, List<Tutorial> savedTutorials) {
+		this.name = name;
+		this.age = age;
+		this.password = password;
+		this.bankDetails = bankDetails;
+		this.location = location;
+		this.savedTutorials = savedTutorials;
+	}
 }
