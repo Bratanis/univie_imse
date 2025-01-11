@@ -24,4 +24,5 @@ public class LocationService {
 		repo.save(newLocation);
 	}
 
+
 }
