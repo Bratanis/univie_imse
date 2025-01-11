@@ -19,5 +19,9 @@ public class LocationService {
 		
 		return repo.findAll();
 	}
+	
+	public void insertLocation(Location newLocation) {
+		repo.save(newLocation);
+	}
 
 }

@@ -1,12 +1,24 @@
 package com.example.imse_g2_m2.util;
-import com.github.javafaker.Faker;
-import java.sql.*;
-import java.util.TreeSet;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Random;
 import java.util.Set;
+import java.util.TreeSet;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.example.imse_g2_m2.model.Location;
+import com.example.imse_g2_m2.service.LocationService;
+import com.github.javafaker.Faker;
 
 public class MariaDBDatabasePopulator {
 
+	@Autowired
+	private LocationService locationService;
+	
     public static void main(String[] args) {
         Faker faker = new Faker();  // We use Faker instance to generate random data
 
@@ -37,6 +49,13 @@ public class MariaDBDatabasePopulator {
         String insertSql = "INSERT INTO location (manager_name, address) VALUES (?, ?)";
         try (PreparedStatement ps = connection.prepareStatement(insertSql)) {
             for (int i = 1; i <= 10; i++) {  
+            	Location newLocation;
+            	try {
+//					locationService.insertLocation(newLocation);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
                 ps.setString(1, faker.name().fullName());
                 ps.setString(2, faker.address().fullAddress());
                 ps.addBatch();

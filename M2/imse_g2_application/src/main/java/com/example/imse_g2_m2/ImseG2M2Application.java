@@ -9,8 +9,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class ImseG2M2Application {
 
     public static void main(String[] args) {
-        // Run the Spring Boot application
-        //SpringApplication.run(ImseG2M2Application.class, args);
+//      Run the Spring Boot application
+        SpringApplication.run(ImseG2M2Application.class, args);
 
         // Run the MariaDBDatabasePopulator to populate the database
         /*try {
@@ -20,11 +20,11 @@ public class ImseG2M2Application {
             System.err.println("Error populating the database: " + e.getMessage());
         }*/
         
-        try {
-        	MariaDBToMongoDBMigration.main(args); 
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.err.println("Error populating the database: " + e.getMessage());
-        }
+//        try {
+//        	MariaDBToMongoDBMigration.main(args); 
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            System.err.println("Error populating the database: " + e.getMessage());
+//        }
     }
 }
