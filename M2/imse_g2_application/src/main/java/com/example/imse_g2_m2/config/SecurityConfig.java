@@ -23,27 +23,27 @@ public class SecurityConfig {
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity httpSec) throws Exception {
 		
-		// disable csrf for simplicity
-		httpSec.csrf(customizer -> customizer.disable())
-			   .authorizeHttpRequests(request -> request.anyRequest().authenticated())
-			   //.formLogin(Customizer.withDefaults())
-			   .httpBasic(Customizer.withDefaults())
-			   .sessionManagement(session -> 
-			    	session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
-		
+//		// disable csrf for simplicity
+//		httpSec.csrf(customizer -> customizer.disable())
+//			   .authorizeHttpRequests(request -> request.anyRequest().authenticated())
+//			   //.formLogin(Customizer.withDefaults())
+//			   .httpBasic(Customizer.withDefaults())
+//			   .sessionManagement(session -> 
+//			    	session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
+//		
 		return httpSec.build();
 	}
 	
-	@SuppressWarnings("deprecation")
-	@Bean
-	public AuthenticationProvider authenticationProvider() {
-		
-		DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
-		provider.setPasswordEncoder(NoOpPasswordEncoder.getInstance()); // Passwords not encoded for simplicity + app not in production
-		provider.setUserDetailsService(userDetailsService);
-		
-		return provider;
-	}
+//	@SuppressWarnings("deprecation")
+//	@Bean
+//	public AuthenticationProvider authenticationProvider() {
+//		
+//		DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
+//		provider.setPasswordEncoder(NoOpPasswordEncoder.getInstance()); // Passwords not encoded for simplicity + app not in production
+//		provider.setUserDetailsService(userDetailsService);
+//		
+//		return provider;
+//	}
 
 	/**
 	 * User management using hard-coded users for the sake of simpler testing
