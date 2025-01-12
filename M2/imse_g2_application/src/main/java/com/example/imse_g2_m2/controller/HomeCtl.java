@@ -2,14 +2,7 @@ package com.example.imse_g2_m2.controller;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.example.imse_g2_m2.model.Member;
-import com.example.imse_g2_m2.service.login.LoginRequest;
-import com.example.imse_g2_m2.service.login.LoginService;
 
 import lombok.AllArgsConstructor;
 
@@ -28,7 +21,7 @@ import lombok.AllArgsConstructor;
 // @RequestMapping ("") // Set this to the endpoint of a certain user that is logged in
 public class HomeCtl {
 
-	private LoginService loginService;
+//	private LoginService loginService;
 	
 //	private MariaDBDatabasePopulator dataPopulator;
 
@@ -46,24 +39,5 @@ public class HomeCtl {
 //	}
 	
 	
-<<<<<<< HEAD
-	
-	/*@GetMapping("/members/{memberId}")
-	public Member getMemberById (@PathVariable int memberId){
-		return memberService.getMemberById(memberId);
-	}
-	
-	@GetMapping("/tutorials")
-	public List<Tutorial> getAllTutorials (){
-		return tutorialService.getAllTutorials();*/
-	}
-	
-=======
-// Moved to AdminCtl!	
-//	@GetMapping("/populate")
-//	public void populateMariaDb () {
-//		dataPopulator.insertData();
-//	}
->>>>>>> fa48497b6472538739eebcd89d5a0448acccd76c
 	
 }
