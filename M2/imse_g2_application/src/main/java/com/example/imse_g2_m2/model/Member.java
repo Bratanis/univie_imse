@@ -60,4 +60,5 @@ public class Member {
         inverseJoinColumns = @JoinColumn(name = "tutorial_id")
     )
 	private List<Tutorial> saved_tutorials;
+	
 }

@@ -12,7 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
-import com.example.imse_g2_m2.service.CompositeUserDetailsService;
+import com.example.imse_g2_m2.service.login.CompositeUserDetailsService;
 
 @SpringBootTest
 class ImseG2M2ApplicationTests {

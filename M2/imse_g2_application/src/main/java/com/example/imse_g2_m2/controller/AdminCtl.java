@@ -14,14 +14,17 @@ import lombok.AllArgsConstructor;
 @RestController
 @CrossOrigin // Will allow the front-end to access the back-end
 @AllArgsConstructor
-//@PreAuthorize("hasRole('USER')")  // authorization in SecurityConifg
-@RequestMapping ("/member") // Set this to the endpoint of a certain user that is logged in
-public class MemberCtl {
-
+//@PreAuthorize("hasRole('ADMIN')") // authorization in SecurityConifg
+@RequestMapping ("/admin") // Set this to the endpoint of a certain user that is logged in
+public class AdminCtl {
 	@GetMapping("/")
-	public ResponseEntity<Resource> memberPage() {
-		Resource resource = new ClassPathResource("/static/member.html");
-		return ResponseEntity.ok().contentType(MediaType.TEXT_HTML).body(resource);
-	}
+    public ResponseEntity<Resource> adminPage() {
+        Resource resource = new ClassPathResource("/static/admin.html");
+        return ResponseEntity.ok().contentType(MediaType.TEXT_HTML).body(resource);
+    }	
+//	@GetMapping
+//	getLocations(){
+//		
+//	}
 
 }

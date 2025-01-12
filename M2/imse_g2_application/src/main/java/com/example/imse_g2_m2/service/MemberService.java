@@ -14,7 +14,10 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class MemberService {
 
-private MemberRepo repo;
+	private MemberRepo repo;
+	
+//	private AuthenticationManager authManager;
+
 	
 	public List<Member> getAllMembers() {
 		
@@ -26,4 +29,18 @@ private MemberRepo repo;
 		return repo.findById(memberId)
                    .orElseThrow(() -> new MemberNotFoundException("Member with ID " + memberId + " not found"));
 	}
+	
+//	public Member registerMember(Member newMember) {
+//		return repo.save(newMember);
+//	}
+
+//	public String verify(User user) {
+//		Authentication authentication = authManager.authenticate(
+//										new UsernamePasswordAuthenticationToken(user.g, user.getPassword()));
+//		if(authentication.isAuthenticated()) {
+//			return "Success!";
+//		} else {
+//			return "Fail!";
+//		}
+//	}
 }

@@ -23,6 +23,11 @@ public class LocationService {
 	public void insertLocation(Location newLocation) {
 		repo.save(newLocation);
 	}
+	
+	public void emptyLocations() {
+		repo.deleteAll();
+		repo.resetAutoIncrement();
+	}
 
 
 }

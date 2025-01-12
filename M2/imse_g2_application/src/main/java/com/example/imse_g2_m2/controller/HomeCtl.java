@@ -1,18 +1,13 @@
 package com.example.imse_g2_m2.controller;
 
-import java.util.List;
-
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.imse_g2_m2.model.Location;
-import com.example.imse_g2_m2.model.Member;
-import com.example.imse_g2_m2.model.Tutorial;
-import com.example.imse_g2_m2.service.LocationService;
-import com.example.imse_g2_m2.service.MemberService;
-import com.example.imse_g2_m2.service.TutorialService;
+import com.example.imse_g2_m2.service.login.LoginRequest;
+import com.example.imse_g2_m2.service.login.LoginService;
 
 import lombok.AllArgsConstructor;
 
@@ -31,39 +26,24 @@ import lombok.AllArgsConstructor;
 // @RequestMapping ("") // Set this to the endpoint of a certain user that is logged in
 public class HomeCtl {
 
-	private LocationService locationService;
-	private MemberService memberService;
-	private TutorialService tutorialService;
+	private LoginService loginService;
 
-
-	@GetMapping("/")
+	@GetMapping("/api")
 	public String initialGreeting() {
-		return "Hello World";
+	    return "Please login!";
 	}
 	
-	@GetMapping("/login")
-	public String login() {
-		return "This is the login screen";
-	}
+//	@GetMapping("/login")
+//	public String login() {
+//		return "This is the login screen";
+//	}
 	
-	@GetMapping("/locations")
-	public List<Location> getAllLocations (){
-		
-		return locationService.getAllLocations();
-	}
+//	@PostMapping("/login")
+//	public String login(@RequestBody LoginRequest loginRequest) {
+////		System.out.println(loginRequest);
+////		compUserService.loadUserByUsername(loginRequest.getUsername());
+//		return loginService.verify(loginRequest);
+//	}
 	
-	@GetMapping("/members")
-	public List <Member> getAllMembers (){
-		return memberService.getAllMembers();
-	}
 	
-	@GetMapping("/members/{memberId}")
-	public Member getMemberById (@PathVariable int memberId){
-		return memberService.getMemberById(memberId);
-	}
-	
-	@GetMapping("/tutorials")
-	public List<Tutorial> getAllTutorials (){
-		return tutorialService.getAllTutorials();
-	}
 }

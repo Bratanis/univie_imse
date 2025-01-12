@@ -1,4 +1,4 @@
-package com.example.imse_g2_m2.service;
+package com.example.imse_g2_m2.service.login;
 
 import java.util.List;
 
@@ -32,11 +32,24 @@ public class CompositeUserDetailsService implements UserDetailsService{
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         for (UserDetailsService service : services) {
             try {
-                return service.loadUserByUsername(username);
+            	UserDetails ud = service.loadUserByUsername(username);
+            	System.out.println(ud.getAuthorities());
+                return ud;
             } catch (UsernameNotFoundException ignored) {
                 // Method will just try the next service
             }
         }
         throw new UsernameNotFoundException("User not found: " + username);
     }
+
+//	public String verify(LoginRequest loginRequest) {
+//		for (UserDetailsService service : services) {
+//            try {
+//                return service.verify(loginRequest);
+//            } catch (UsernameNotFoundException ignored) {
+//                // Method will just try the next service
+//            }
+//        }
+//        throw new UsernameNotFoundException("User not found: " + username);
+//	}
 }
