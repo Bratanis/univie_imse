@@ -42,4 +42,8 @@ public class MemberService {
 		repo.deleteAll();
 		entityManager.createNativeQuery("ALTER TABLE member AUTO_INCREMENT = 1").executeUpdate();
 	}
+
+//	public Member getMemberByName(String name) {
+//		return repo.findBy(null, null);
+//	}
 }

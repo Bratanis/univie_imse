@@ -1,11 +1,11 @@
-package com.example.imse_g2_m2.util;
+package com.example.imse_g2_m2.service.populator;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
 import java.util.TreeSet;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.example.imse_g2_m2.model.BankDetails;
 import com.example.imse_g2_m2.model.Location;
@@ -19,9 +19,9 @@ import com.github.javafaker.Faker;
 
 import lombok.AllArgsConstructor;
 
-@Component
+@Service
 @AllArgsConstructor
-public class MariaDBDatabasePopulator {
+public class MariaDBPopulatorService {
 
 	LocationService locationService;
 	MemberService memberService;

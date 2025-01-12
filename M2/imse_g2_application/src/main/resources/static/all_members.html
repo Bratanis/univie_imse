@@ -46,7 +46,7 @@
         async function fetchMembers() {
             try {
                 // Use the correct backend URL
-                const response = await fetch('http://localhost:8081/members');
+                const response = await fetch('http://localhost:8081/api/admin/all_members');
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }

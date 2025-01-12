@@ -46,7 +46,7 @@
         async function fetchTutorials() {
             try {
                 // Use the correct backend URL
-                const response = await fetch('http://localhost:8081/tutorials');
+                const response = await fetch('http://localhost:8081/api/public/tutorials');
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }

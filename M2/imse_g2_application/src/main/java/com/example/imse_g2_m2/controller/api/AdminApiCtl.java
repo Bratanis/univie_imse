@@ -2,18 +2,18 @@ package com.example.imse_g2_m2.controller.api;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.imse_g2_m2.model.Location;
 import com.example.imse_g2_m2.model.Member;
-import com.example.imse_g2_m2.model.Tutorial;
-import com.example.imse_g2_m2.service.LocationService;
+import com.example.imse_g2_m2.model.reports.BratanovReportDTO;
 import com.example.imse_g2_m2.service.MemberService;
-import com.example.imse_g2_m2.service.TutorialService;
+import com.example.imse_g2_m2.service.populator.MariaDBPopulatorService;
+import com.example.imse_g2_m2.service.reports.BratanovReportService;
 
 import lombok.AllArgsConstructor;
 
@@ -24,22 +24,20 @@ import lombok.AllArgsConstructor;
 @RequestMapping ("/api/admin") // Set this to the endpoint of a certain user that is logged in
 public class AdminApiCtl {
 
-	private LocationService locationService;
+//	private LocationService locationService;
 	private MemberService memberService;
-	private TutorialService tutorialService;
+//	private TutorialService tutorialService;
+	private MariaDBPopulatorService populatorService;
+	
+	private BratanovReportService bratanovReportService;
 	
 	@GetMapping("")
 	public String initialAdminGreeting() {
 		return "Hello, admin!!!"; 
 	}
 	
-	@GetMapping("/locations")
-	public List<Location> getAllLocations (){
-		
-		return locationService.getAllLocations();
-	}
 	
-	@GetMapping("/members")
+	@GetMapping("/all_members")
 	public List <Member> getAllMembers (){
 		return memberService.getAllMembers();
 	}
@@ -49,8 +47,20 @@ public class AdminApiCtl {
 		return memberService.getMemberById(memberId);
 	}
 	
-	@GetMapping("/tutorials")
-	public List<Tutorial> getAllTutorials (){
-		return tutorialService.getAllTutorials();
+//	@GetMapping("/members/{name}")
+//	public Member getMemberByName (@PathVariable String name){
+//		return memberService.getMemberByName(name);
+//	}
+	
+	// Doesnt work
+	@GetMapping("/populate")
+	public void populateMariaDb () {
+		populatorService.insertData();
 	}
+	
+	@GetMapping("/report_Bratanov") 
+	public ResponseEntity<BratanovReportDTO> getBeginnerTutorialReport() {
+        return ResponseEntity.ok(bratanovReportService.getBeginnerTutorialReport());
+    }
+	
 }
