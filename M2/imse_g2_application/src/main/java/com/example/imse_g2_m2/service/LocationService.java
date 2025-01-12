@@ -30,9 +30,14 @@ public class LocationService {
 		repo.save(location);
 	}
 	
-	@Transactional
-	public void clearLocation() {
+<<<<<<< HEAD
+=======
+	
+	public void emptyLocations() {
 		repo.deleteAll();
-		entityManager.createNativeQuery("ALTER TABLE member AUTO_INCREMENT = 1").executeUpdate();
+		repo.resetAutoIncrement();
 	}
+
+
+>>>>>>> fa48497b6472538739eebcd89d5a0448acccd76c
 }

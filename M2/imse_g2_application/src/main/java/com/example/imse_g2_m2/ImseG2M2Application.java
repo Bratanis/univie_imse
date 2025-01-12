@@ -1,9 +1,5 @@
 package com.example.imse_g2_m2;
 
-import com.example.imse_g2_m2.migrator.MariaDBToMongoDBMigration;
-import com.example.imse_g2_m2.repo.LocationRepo;
-import com.example.imse_g2_m2.service.LocationService;
-import com.example.imse_g2_m2.util.MariaDBDatabasePopulator;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

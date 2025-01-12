@@ -1,4 +1,4 @@
-package com.example.imse_g2_m2.service;
+package com.example.imse_g2_m2.service.login;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,7 +16,9 @@ public class MemberUserDetailsService implements UserDetailsService{
 	@Autowired
 	private MemberRepo userRepo;
 	
+//	private AuthenticationManager authManager;
 	
+
 	@Override
 	public UserDetails loadUserByUsername(String memberIdString) throws UsernameNotFoundException {
 		
@@ -35,5 +37,6 @@ public class MemberUserDetailsService implements UserDetailsService{
 		
 		return new UserPrincipal(user);
 	}
+	
 
 }

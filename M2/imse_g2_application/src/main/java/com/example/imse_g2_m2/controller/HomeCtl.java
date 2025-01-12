@@ -1,19 +1,15 @@
 package com.example.imse_g2_m2.controller;
 
-import java.util.List;
-
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.imse_g2_m2.model.Location;
 import com.example.imse_g2_m2.model.Member;
-import com.example.imse_g2_m2.model.Tutorial;
-import com.example.imse_g2_m2.service.LocationService;
-import com.example.imse_g2_m2.service.MemberService;
-import com.example.imse_g2_m2.service.TutorialService;
-import com.example.imse_g2_m2.util.MariaDBDatabasePopulator;
+import com.example.imse_g2_m2.service.login.LoginRequest;
+import com.example.imse_g2_m2.service.login.LoginService;
 
 import lombok.AllArgsConstructor;
 
@@ -32,48 +28,42 @@ import lombok.AllArgsConstructor;
 // @RequestMapping ("") // Set this to the endpoint of a certain user that is logged in
 public class HomeCtl {
 
-	private LocationService locationService;
-	private MemberService memberService;
-	private TutorialService tutorialService;
+	private LoginService loginService;
 	
-	private MariaDBDatabasePopulator dataPopulator;
+//	private MariaDBDatabasePopulator dataPopulator;
 
-
-	@GetMapping("/")
+	@GetMapping("/api")
 	public String initialGreeting() {
-		return "Hello World";
-	}
-	
-	@GetMapping("/login")
-	public String login() {
-		return "This is the login screen";
-	}
-	
-	@GetMapping("/locations")
-	public List<Location> getAllLocations (){
-		
-		return locationService.getAllLocations();
-	}
-	
-	@GetMapping("/members")
-	public List <Member> getAllMembers (){
-		return memberService.getAllMembers();
+	    return "Please login!";
 	}
 	
 	
-	@GetMapping("/members/{memberId}")
+//	@PostMapping("/login")
+//	public String login(@RequestBody LoginRequest loginRequest) {
+////		System.out.println(loginRequest);
+////		compUserService.loadUserByUsername(loginRequest.getUsername());
+//		return loginService.verify(loginRequest);
+//	}
+	
+	
+<<<<<<< HEAD
+	
+	/*@GetMapping("/members/{memberId}")
 	public Member getMemberById (@PathVariable int memberId){
 		return memberService.getMemberById(memberId);
 	}
 	
 	@GetMapping("/tutorials")
 	public List<Tutorial> getAllTutorials (){
-		return tutorialService.getAllTutorials();
+		return tutorialService.getAllTutorials();*/
 	}
 	
-	@GetMapping("/populate")
-	public void populateMariaDb () {
-		dataPopulator.insertData();
-	}
+=======
+// Moved to AdminCtl!	
+//	@GetMapping("/populate")
+//	public void populateMariaDb () {
+//		dataPopulator.insertData();
+//	}
+>>>>>>> fa48497b6472538739eebcd89d5a0448acccd76c
 	
 }
