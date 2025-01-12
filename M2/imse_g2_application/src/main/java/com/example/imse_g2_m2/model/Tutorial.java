@@ -35,4 +35,11 @@ public class Tutorial {
     @Column(length = 2048)
     protected String description;
 	    
+    public Tutorial(String name, String muscleGroup, String difficultyLevel, String description) {
+		this.name = name;
+		this.muscleGroup = muscleGroup;
+		this.difficultyLevel = difficultyLevel;
+		this.description = description;
+	}
+
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.example.imse_g2_m2.model.Member;
 import com.example.imse_g2_m2.model.Tutorial;
 import com.example.imse_g2_m2.repo.TutorialRepo;
 
@@ -19,5 +20,13 @@ private TutorialRepo repo;
 	public List<Tutorial> getAllTutorials() {
 		
 		return repo.findAll();
+	}
+	
+	public void insertTutorial(Tutorial tutorial) {
+		repo.save(tutorial);
+	}
+	
+	public void clearTutorial() {
+		repo.deleteAll();
 	}
 }

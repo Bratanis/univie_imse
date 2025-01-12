@@ -159,3 +159,22 @@ ALTER TABLE video_tutorial ADD CONSTRAINT fk_video_tutorial FOREIGN KEY (tutoria
 		}
 	]
 }
+
+SELECT DISTINCT
+    b.member_id AS MEMBER_ID,
+    m.name AS NAME,
+    b.card_number AS CARD_NUMBER,
+    b.exp_date AS EXP_DATE,
+    l.location_id AS LOCATION_ID,
+    l.manager_name AS MANAGER_NAME
+FROM
+    Bank_details b
+INNER JOIN
+    Member m ON m.member_id = b.member_id
+INNER JOIN
+    Location l ON l.location_id = m.location_id
+WHERE
+    b.exp_date = '2012-11-12'
+ORDER BY
+    l.location_id, m.member_id;
+

@@ -22,6 +22,17 @@ public class AdminCtl {
         Resource resource = new ClassPathResource("/static/admin.html");
         return ResponseEntity.ok().contentType(MediaType.TEXT_HTML).body(resource);
     }	
+
+/**
+ * To be refactored into a dataPopulator service, 
+ * Controller should only handle api communication!
+ */
+	//@GetMapping("/populate")
+	//public void populateMariaDb () {
+	//	dataPopulator.insertData();
+	//}
+
+
 //	@GetMapping
 //	getLocations(){
 //		

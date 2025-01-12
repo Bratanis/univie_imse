@@ -10,13 +10,6 @@ public class ImseG2M2Application {
 //      Run the Spring Boot application
         SpringApplication.run(ImseG2M2Application.class, args);
 
-        // Run the MariaDBDatabasePopulator to populate the database
-        /*try {
-            MariaDBDatabasePopulator.main(args);  // Call the main method of your database populator
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.err.println("Error populating the database: " + e.getMessage());
-        }*/
         
 //        try {
 //        	MariaDBToMongoDBMigration.main(args); 

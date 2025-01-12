@@ -20,8 +20,12 @@ public class LocationService {
 		return repo.findAll();
 	}
 	
-	public void insertLocation(Location newLocation) {
-		repo.save(newLocation);
+	public void insertLocation(Location location) {
+		repo.save(location);
+	}
+	
+	public void clearLocation() {
+		repo.deleteAll();
 	}
 	
 	public void emptyLocations() {
