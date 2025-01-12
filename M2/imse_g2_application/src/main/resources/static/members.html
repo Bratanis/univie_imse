@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Members</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <h1>List of Members</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Member ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Password</th>
+                <th>Location ID</th>
+            </tr>
+        </thead>
+        <tbody id="members-table-body">
+            <!-- Member rows will be dynamically inserted here -->
+        </tbody>
+    </table>
+
+    <script>
+        // Fetch data from the backend endpoint and populate the table
+        async function fetchMembers() {
+            try {
+                // Use the correct backend URL
+                const response = await fetch('http://localhost:8081/members');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const members = await response.json();
+
+                const tableBody = document.getElementById('members-table-body');
+                tableBody.innerHTML = ''; // Clear any existing rows
+
+                // Populate the table with fetched data
+                members.forEach(member => {
+                    const row = document.createElement('tr');
+
+                    const idCell = document.createElement('td');
+                    idCell.textContent = member.memberId;
+                    row.appendChild(idCell);
+
+                    const nameCell = document.createElement('td');
+                    nameCell.textContent = member.name;
+                    row.appendChild(nameCell);
+
+                    const ageCell = document.createElement('td');
+                    ageCell.textContent = member.age;
+                    row.appendChild(ageCell);
+
+                    const passwordCell = document.createElement('td');
+                    passwordCell.textContent = member.password; // Note: It is not recommended to show the password in a real app
+                    row.appendChild(passwordCell);
+
+                    const locationCell = document.createElement('td');
+                    locationCell.textContent = member.location ? member.location.locationId : 'N/A'; // Display location ID
+                    row.appendChild(locationCell);
+
+                    tableBody.appendChild(row);
+                });
+            } catch (error) {
+                console.error('Error fetching members:', error);
+                alert('Failed to fetch members. Please try again later.');
+            }
+        }
+
+        // Call the function to fetch and display members when the page loads
+        window.onload = fetchMembers;
+    </script>
+</body>
+</html>

@@ -3,12 +3,14 @@ package com.example.imse_g2_m2.service;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.imse_g2_m2.exceptions.MemberNotFoundException;
-import com.example.imse_g2_m2.model.Location;
 import com.example.imse_g2_m2.model.Member;
 import com.example.imse_g2_m2.repo.MemberRepo;
 
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import lombok.AllArgsConstructor;
 
 @Service
@@ -16,6 +18,9 @@ import lombok.AllArgsConstructor;
 public class MemberService {
 
     private MemberRepo repo;
+    
+    @PersistenceContext
+    private EntityManager entityManager;
 	
 	public List<Member> getAllMembers() {
 		
@@ -32,7 +37,9 @@ public class MemberService {
 		repo.save(member);
 	}
 	
+	@Transactional
 	public void clearMember() {
 		repo.deleteAll();
+		entityManager.createNativeQuery("ALTER TABLE member AUTO_INCREMENT = 1").executeUpdate();
 	}
 }

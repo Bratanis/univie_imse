@@ -31,12 +31,12 @@ public class MariaDBDatabasePopulator {
         Faker faker = new Faker();  // We use Faker instance to generate random data
         
         locationService.clearLocation();
-        memberService.clearMember();
-        tutorialService.clearTutorial();
+        //tutorialService.clearTutorial();
+        //memberService.clearMember();
 
         insertLocations(faker);
-        insertTutorials(faker);
-        insertMembers(faker);
+        //insertTutorials(faker);
+        //insertMembers(faker);
         /*insertBankDetails(faker);
         insertVideoTutorials(faker);*/
     }

@@ -60,6 +60,7 @@ public class HomeCtl {
 		return memberService.getAllMembers();
 	}
 	
+	
 	@GetMapping("/members/{memberId}")
 	public Member getMemberById (@PathVariable int memberId){
 		return memberService.getMemberById(memberId);
