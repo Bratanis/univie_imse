@@ -28,7 +28,7 @@ public class HomeCtl {
 
 	private LoginService loginService;
 	
-	private MariaDBDatabasePopulator dataPopulator;
+//	private MariaDBDatabasePopulator dataPopulator;
 
 	@GetMapping("/api")
 	public String initialGreeting() {
@@ -50,5 +50,4 @@ public class HomeCtl {
 //		dataPopulator.insertData();
 //	}
 	
->>>>>>> ff476a2d60f7dcb98294464e776c085c26e8323f
 }
