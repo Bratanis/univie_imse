@@ -30,8 +30,6 @@ public class LocationService {
 		repo.save(location);
 	}
 	
-<<<<<<< HEAD
-=======
 	
 	public void emptyLocations() {
 		repo.deleteAll();
@@ -39,5 +37,4 @@ public class LocationService {
 	}
 
 
->>>>>>> fa48497b6472538739eebcd89d5a0448acccd76c
 }

@@ -122,7 +122,7 @@ public class MariaDBDatabasePopulator {
             }
             List<Tutorial> savedTutorials = new ArrayList<>(usedTutorials);
         	
-        	member = new Member(name, age, password, bankDetails, location, savedTutorials);
+        	member = new Member(0, name, age, password, bankDetails, location, savedTutorials); // memberId gets overwritten by db
         	try {
         		memberService.insertMember(member);
         	} catch (Exception e) {
