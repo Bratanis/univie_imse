@@ -1,7 +1,5 @@
 package com.example.imse_g2_m2.model.reports;
 
-import java.net.URL;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 /**

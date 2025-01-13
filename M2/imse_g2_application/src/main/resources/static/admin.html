@@ -3,9 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin</title>
+    <title>Admin Dashboard</title>
 </head>
 <body>
     <h1>Welcome, Admin</h1>
+    <p>Choose an action:</p>
+    <div>
+        <button onclick="navigateTo('/admin/all_members')">View All Members</button>
+        <button onclick="navigateTo('/admin/locations')">View Locations</button>
+        <button onclick="navigateTo('/admin/tutorials')">View Tutorials</button>
+        <button onclick="navigateTo('/admin/data_manager')">Data Manager</button>
+        <button onclick="navigateTo('/admin/report_Bratanov')">Report Bratanov</button>
+        <button onclick="navigateTo('/admin/report_Yordanov')">Report Yordanov</button>
+    </div>
+
+    <script>
+        function navigateTo(url) {
+            window.location.href = url;
+        }
+    </script>
 </body>
 </html>

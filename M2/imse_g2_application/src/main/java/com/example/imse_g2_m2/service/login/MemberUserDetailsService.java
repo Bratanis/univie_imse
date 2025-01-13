@@ -8,13 +8,13 @@ import org.springframework.stereotype.Service;
 
 import com.example.imse_g2_m2.model.Member;
 import com.example.imse_g2_m2.model.UserPrincipal;
-import com.example.imse_g2_m2.repo.MemberRepo;
+import com.example.imse_g2_m2.repo.sqlRepo.MemberSqlRepo;
 
 @Service
 public class MemberUserDetailsService implements UserDetailsService{
 
 	@Autowired
-	private MemberRepo userRepo;
+	private MemberSqlRepo userRepo;
 	
 //	private AuthenticationManager authManager;
 	

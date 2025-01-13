@@ -1,4 +1,4 @@
-package com.example.imse_g2_m2.repo;
+package com.example.imse_g2_m2.repo.sqlRepo;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -6,9 +6,12 @@ import org.springframework.stereotype.Repository;
 
 import com.example.imse_g2_m2.model.Tutorial;
 import com.example.imse_g2_m2.model.reports.BratanovReportDTO;
+import com.example.imse_g2_m2.repo.reports.BratanovReportInterface;
 
-@Repository
-public interface TutorialRepo extends JpaRepository<Tutorial, Integer>{
+@Repository("tutorialSqlRepo")
+public interface TutorialSqlRepo extends JpaRepository<Tutorial, Integer>, BratanovReportInterface{
+	
+	@Override
 	@Query(value = """
 	        SELECT 
 	            t.name AS tutorialName,

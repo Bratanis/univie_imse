@@ -1,4 +1,4 @@
-package com.example.imse_g2_m2.migrator;
+package com.example.imse_g2_m2.service.migrator;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -10,13 +10,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.bson.Document;
+import org.springframework.stereotype.Service;
 
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 
-public class MariaDBToMongoDBMigration {
-    public static void main(String[] args) throws Exception {
+/**
+ * Should be refactored to use the repo classes or at least MongoTemplate
+ */
+@Service
+public class MariaDBToMongoDBMigrationService {
+	
+	
+	
+	
+    public void attemptMigration() throws Exception {
     	
     	// Database connection parameters for MariaDB
         String url = "jdbc:mariadb://localhost:3306/imse"; 
