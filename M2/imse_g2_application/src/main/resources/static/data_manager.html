@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Management Dashboard</title>
+</head>
+<body>
+    <h1>Manage Data</h1>
+    <p>Choose an action:</p>
+    <div>
+        <button onclick="fetchData('/api/admin/populate')">Create Example Data In MariaDB</button>
+        <button onclick="fetchData('/api/admin/migrate')">Migrate Data to MongoDB</button>
+        <button onclick="fetchData('/api/admin/use_MongoDB')">Switch to MongoDB</button>
+        <button onclick="fetchData('/api/admin/use_MariaDB')">Switch to MariaDB</button>
+    </div>
+    <h2>Result:</h2>
+    <div id="response-container">
+        <p>Click a button to see the response here.</p>
+    </div>
+
+    <script>
+        // Function to fetch data from an endpoint and display the response
+        async function fetchData(url) {
+            try {
+                // Send a GET request to the endpoint
+                const response = await fetch(url);
+
+                // Check if the response is OK
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+
+                // Get the response text
+                const text = await response.text();
+
+                // Display the response in the container
+                document.getElementById('response-container').innerText = text;
+            } catch (error) {
+                // Handle errors and display them in the container
+                document.getElementById('response-container').innerText = `Error: ${error.message}`;
+            }
+        }
+    </script>
+</body>
+</html>

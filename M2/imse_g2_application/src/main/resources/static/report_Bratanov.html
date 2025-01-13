@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bratanov Report</title>
+</head>
+<body>
+    <h1>Bratanov Report</h1>
+    <div id="report-container">
+        <p>Fetching report...</p>
+    </div>
+
+    <script>
+        // Function to fetch and display the Bratanov Report
+        async function fetchBratanovReport() {
+            try {
+                const response = await fetch('/api/admin/report_Bratanov');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+
+                // Parse the JSON response
+                const report = await response.json();
+
+                // Build the report display
+                const reportHtml = `
+                    <ul>
+                        <li><strong>Tutorial Name:</strong> ${report.tutName}</li>
+                        <li><strong>Tutorial URL:</strong> <a href="${report.tutUrl}" target="_blank">${report.tutUrl}</a></li>
+                        <li><strong>Lower Age Range:</strong> ${report.lowerAgeRange}</li>
+                        <li><strong>Upper Age Range:</strong> ${report.upperAgeRange}</li>
+                        <li><strong>Times Saved:</strong> ${report.timesSaved}</li>
+                    </ul>
+                `;
+
+                // Insert the report into the page
+                document.getElementById('report-container').innerHTML = reportHtml;
+            } catch (error) {
+                // Display error message if the fetch fails
+                document.getElementById('report-container').innerText = `Error fetching report: ${error.message}`;
+            }
+        }
+
+        // Call the function to fetch and display the report
+        fetchBratanovReport();
+    </script>
+</body>
+</html>

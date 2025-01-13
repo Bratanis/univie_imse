@@ -1,4 +1,4 @@
-package webconfig;
+package com.example.imse_g2_m2.webconfig;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
