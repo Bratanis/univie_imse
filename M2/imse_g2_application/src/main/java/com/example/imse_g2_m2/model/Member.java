@@ -53,7 +53,7 @@ public class Member {
     @JoinColumn(name = "location_id", referencedColumnName = "location_id")
 	private Location location;
 	
-	@ManyToMany
+	@ManyToMany( fetch = FetchType.EAGER)
     @JoinTable(
         name = "saved",
         joinColumns = @JoinColumn(name = "member_id"),

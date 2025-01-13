@@ -13,6 +13,7 @@ import com.example.imse_g2_m2.model.Location;
 import com.example.imse_g2_m2.model.Member;
 import com.example.imse_g2_m2.model.Tutorial;
 import com.example.imse_g2_m2.service.LocationService;
+import com.example.imse_g2_m2.service.SingleMemberService;
 import com.example.imse_g2_m2.service.TutorialService;
 
 import lombok.AllArgsConstructor;
@@ -23,6 +24,7 @@ import lombok.AllArgsConstructor;
 @RequestMapping ("/api/member") // Set this to the endpoint of a certain user that is logged in
 public class MemberApiCtl {
 
+	private SingleMemberService memberService;
 	private LocationService locationService;
 	private TutorialService tutorialService;
 	
@@ -33,11 +35,11 @@ public class MemberApiCtl {
 		return "Hello, Member!!!"; // change to greet with name
 	}
 	
-	@PostMapping("/login")
-	public String login(@RequestBody Member member) {
-		System.out.println(member);
-		return "Not implemented";
-	}
+//	@PostMapping("/login")
+//	public String login(@RequestBody Member member) {
+//		System.out.println(member);
+//		return "Not implemented";
+//	}
 	
 	
 	@GetMapping("/locations")
@@ -54,6 +56,20 @@ public class MemberApiCtl {
 	
 	@GetMapping("/account")
 	public Member getMyMemberData () {
-		return null;
+		return memberService.getAuthenticatedMember();
+	}
+	
+	@PostMapping("/save_tutorial")
+	public String saveTutorial(@RequestBody Tutorial tutorial) {
+		return memberService.saveTutorial(tutorial);
+	}
+	
+	@PostMapping("/remove_tutorial")
+	public String removeSavedTutorial(@RequestBody Tutorial tutorial) {
+		return memberService.removeTutorial(tutorial);
 	}
 }
+
+
+
+

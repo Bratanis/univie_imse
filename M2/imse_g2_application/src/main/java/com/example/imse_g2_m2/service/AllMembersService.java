@@ -16,7 +16,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 
 @Service
-public class MemberService {
+public class AllMembersService {
 	
 	
 	private final MemberSqlRepo mariaDBRepo;
@@ -28,7 +28,7 @@ public class MemberService {
     @PersistenceContext
     private EntityManager entityManager;
     
-    public MemberService(
+    public AllMembersService(
 			@Qualifier("memberSqlRepo") MemberSqlRepo mariaDBRepo,
 			@Qualifier("memberNoSqlRepo") MemberNoSqlRepo mongoDBRepo) {
 		super();

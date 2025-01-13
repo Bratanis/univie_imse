@@ -7,5 +7,17 @@
 </head>
 <body>
     <h1>Welcome, Member</h1>
+    <p>Choose an action:</p>
+    <div>
+        <button onclick="navigateTo('/member/my_data')">My Data</button>
+        <button onclick="navigateTo('/member/locations')">Locations</button>
+        <button onclick="navigateTo('/member/tutorials')">Tutorials</button>
+    </div>
+
+    <script>
+        function navigateTo(url) {
+            window.location.href = url;
+        }
+    </script>
 </body>
 </html>

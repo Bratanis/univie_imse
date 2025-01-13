@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.imse_g2_m2.model.Member;
 import com.example.imse_g2_m2.model.reports.BratanovReportDTO;
 import com.example.imse_g2_m2.service.LocationService;
-import com.example.imse_g2_m2.service.MemberService;
+import com.example.imse_g2_m2.service.AllMembersService;
 import com.example.imse_g2_m2.service.TutorialService;
 import com.example.imse_g2_m2.service.migrator.MariaDBToMongoDBMigrationService;
 import com.example.imse_g2_m2.service.populator.MariaDBPopulatorService;
@@ -28,7 +28,7 @@ import lombok.AllArgsConstructor;
 public class AdminApiCtl {
 
 	private LocationService locationService;
-	private MemberService memberService;
+	private AllMembersService memberService;
 	private TutorialService tutorialService;
 	
 	private MariaDBPopulatorService populatorService;

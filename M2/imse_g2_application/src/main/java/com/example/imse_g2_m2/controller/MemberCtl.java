@@ -24,4 +24,29 @@ public class MemberCtl {
 		return ResponseEntity.ok().contentType(MediaType.TEXT_HTML).body(resource);
 	}
 
+	@GetMapping("/my_data")
+	public ResponseEntity<Resource> myDataPage() {
+		Resource resource = new ClassPathResource("/static/my_data.html");
+		return ResponseEntity.ok().contentType(MediaType.TEXT_HTML).body(resource);
+	}
+
+	@GetMapping("/locations")
+	public ResponseEntity<Resource> locationsPage() {
+		Resource resource = new ClassPathResource("/static/locations.html");
+		return ResponseEntity.ok().contentType(MediaType.TEXT_HTML).body(resource);
+	}
+
+	@GetMapping("/tutorials")
+	public ResponseEntity<Resource> tutorialsPage() {
+        Resource resource = new ClassPathResource("/static/savable_tutorials.html");
+        return ResponseEntity.ok().contentType(MediaType.TEXT_HTML).body(resource);
+    }	
 }
+
+
+
+
+
+
+
+

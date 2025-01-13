@@ -13,7 +13,7 @@ import com.example.imse_g2_m2.model.Member;
 import com.example.imse_g2_m2.model.Tutorial;
 import com.example.imse_g2_m2.model.TutorialIdComparator;
 import com.example.imse_g2_m2.service.LocationService;
-import com.example.imse_g2_m2.service.MemberService;
+import com.example.imse_g2_m2.service.AllMembersService;
 import com.example.imse_g2_m2.service.TutorialService;
 import com.github.javafaker.Faker;
 
@@ -24,7 +24,7 @@ import lombok.AllArgsConstructor;
 public class MariaDBPopulatorService {
 
 	LocationService locationService;
-	MemberService memberService;
+	AllMembersService memberService;
 	TutorialService tutorialService;
 	
     public void insertData() {
