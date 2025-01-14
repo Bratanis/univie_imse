@@ -22,6 +22,17 @@
         th {
             background-color: #f4f4f4;
         }
+        .video-details {
+            font-size: 0.9em;
+            color: #555;
+        }
+        a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -45,14 +56,12 @@
         // Fetch data from the backend endpoint and populate the table
         async function fetchTutorials() {
             try {
-                // Use the correct backend URL
                 const response = await fetch('http://localhost:8081/api/public/tutorials');
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
 
                 const tutorials = await response.json();
-
                 const tableBody = document.getElementById('tutorials-table-body');
                 tableBody.innerHTML = ''; // Clear any existing rows
 
@@ -60,24 +69,40 @@
                 tutorials.forEach(tutorial => {
                     const row = document.createElement('tr');
 
+                    // Tutorial ID
                     const idCell = document.createElement('td');
                     idCell.textContent = tutorial.tutorialId;
                     row.appendChild(idCell);
 
+                    // Name
                     const nameCell = document.createElement('td');
                     nameCell.textContent = tutorial.name;
                     row.appendChild(nameCell);
 
+                    // Muscle Group
                     const muscleGroupCell = document.createElement('td');
                     muscleGroupCell.textContent = tutorial.muscleGroup;
                     row.appendChild(muscleGroupCell);
 
+                    // Difficulty Level
                     const difficultyLevelCell = document.createElement('td');
                     difficultyLevelCell.textContent = tutorial.difficultyLevel;
                     row.appendChild(difficultyLevelCell);
 
+                    // Description and Video Details
                     const descriptionCell = document.createElement('td');
                     descriptionCell.textContent = tutorial.description;
+
+                    // Check if the tutorial is a VideoTutorial (if `duration` and `url` are present)
+                    if ('duration' in tutorial && 'url' in tutorial) {
+                        const videoDetails = document.createElement('div');
+                        videoDetails.classList.add('video-details');
+                        videoDetails.innerHTML = `
+                            <p><strong>Duration:</strong> ${tutorial.duration} mins</p>
+                            <p><strong>URL:</strong> <a href="${tutorial.url}" target="_blank">${tutorial.url}</a></p>
+                        `;
+                        descriptionCell.appendChild(videoDetails);
+                    }
                     row.appendChild(descriptionCell);
 
                     tableBody.appendChild(row);

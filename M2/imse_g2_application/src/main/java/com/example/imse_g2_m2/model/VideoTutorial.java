@@ -17,6 +17,6 @@ import lombok.NoArgsConstructor;
 @PrimaryKeyJoinColumn(name = "tutorial_id")
 public class VideoTutorial extends Tutorial{
 	
-	private int length;
+	private int duration;
 	private URL url;
 }

@@ -13,14 +13,14 @@ import com.example.imse_g2_m2.model.UserPrincipal;
 import com.example.imse_g2_m2.repo.sqlRepo.MemberSqlRepo;
 
 @Service
-public class SingleMemberService {
+public class LoggedInMemberService {
 
 	
 	private final MemberSqlRepo currentRepo;
 	
 //	Member myData;
 	
-	public SingleMemberService(
+	public LoggedInMemberService(
 			@Qualifier("memberSqlRepo") MemberSqlRepo mariaDBRepo
 			/*@Qualifier("memberNoSqlRepo") MemberNoSqlRepo mongoDBRepo*/) {
 		super();

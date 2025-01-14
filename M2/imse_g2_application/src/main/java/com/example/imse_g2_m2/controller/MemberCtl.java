@@ -24,9 +24,9 @@ public class MemberCtl {
 		return ResponseEntity.ok().contentType(MediaType.TEXT_HTML).body(resource);
 	}
 
-	@GetMapping("/my_data")
+	@GetMapping("/account")
 	public ResponseEntity<Resource> myDataPage() {
-		Resource resource = new ClassPathResource("/static/my_data.html");
+		Resource resource = new ClassPathResource("/static/account_data.html");
 		return ResponseEntity.ok().contentType(MediaType.TEXT_HTML).body(resource);
 	}
 

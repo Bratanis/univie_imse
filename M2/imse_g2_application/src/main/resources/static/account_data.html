@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Account</title>
+    <script>
+        async function loadMemberData() {
+            try {
+                const response = await fetch('/api/member/account');
+                if (!response.ok) {
+                    throw new Error('Failed to fetch member data');
+                }
+
+                const member = await response.json();
+                document.getElementById('member-name').textContent = member.name;
+                document.getElementById('member-age').textContent = member.age;
+
+                const tutorialsTable = document.getElementById('tutorials-table-body');
+                tutorialsTable.innerHTML = '';
+
+                member.saved_tutorials.forEach(tutorial => {
+                    const row = document.createElement('tr');
+
+                    const nameCell = document.createElement('td');
+                    nameCell.textContent = tutorial.name;
+                    row.appendChild(nameCell);
+
+                    const muscleGroupCell = document.createElement('td');
+                    muscleGroupCell.textContent = tutorial.muscleGroup;
+                    row.appendChild(muscleGroupCell);
+
+                    const difficultyLevelCell = document.createElement('td');
+                    difficultyLevelCell.textContent = tutorial.difficultyLevel;
+                    row.appendChild(difficultyLevelCell);
+
+                    const descriptionCell = document.createElement('td');
+                    descriptionCell.textContent = tutorial.description;
+                    row.appendChild(descriptionCell);
+
+                    const lengthCell = document.createElement('td');
+                    lengthCell.textContent = tutorial.duration ? tutorial.duration : 'N/A';
+                    row.appendChild(lengthCell);
+
+                    const urlCell = document.createElement('td');
+                    const urlLink = tutorial.url ? `<a href="${tutorial.url}" target="_blank">Link</a>` : 'N/A';
+                    urlCell.innerHTML = urlLink;
+                    row.appendChild(urlCell);
+
+                    const actionCell = document.createElement('td');
+                    const removeButton = document.createElement('button');
+                    removeButton.textContent = 'Remove';
+                    removeButton.onclick = () => removeTutorial(tutorial);
+                    actionCell.appendChild(removeButton);
+                    row.appendChild(actionCell);
+
+                    tutorialsTable.appendChild(row);
+                });
+            } catch (error) {
+                console.error('Error loading member data:', error);
+            }
+        }
+
+        async function removeTutorial(tutorial) {
+            try {
+                const response = await fetch('/api/member/remove_tutorial', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(tutorial),
+                });
+
+                if (response.ok) {
+                    alert('Tutorial removed successfully');
+                    loadMemberData(); // Refresh the data
+                } else {
+                    throw new Error('Failed to remove tutorial');
+                }
+            } catch (error) {
+                console.error('Error removing tutorial:', error);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', loadMemberData);
+    </script>
+</head>
+<body>
+    <h1>Member Account</h1>
+    <p><strong>Name:</strong> <span id="member-name"></span></p>
+    <p><strong>Age:</strong> <span id="member-age"></span></p>
+
+    <h2>Saved Tutorials</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Muscle Group</th>
+                <th>Difficulty Level</th>
+                <th>Description</th>
+                <th>Duration</th>
+                <th>URL</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="tutorials-table-body">
+            <!-- Tutorials will be dynamically loaded here -->
+        </tbody>
+    </table>
+</body>
+</html>

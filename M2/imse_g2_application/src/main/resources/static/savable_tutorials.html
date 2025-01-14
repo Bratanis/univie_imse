@@ -96,17 +96,17 @@
                     const descriptionCell = document.createElement('td');
                     descriptionCell.textContent = tutorial.description;
 
-                    // If it's a VideoTutorial, display length and URL
-                    if (tutorial.type === 'VideoTutorial') {
-                        const videoDetails = document.createElement('div');
-                        videoDetails.classList.add('video-details');
-                        videoDetails.innerHTML = `
-                            <p>Length: ${tutorial.length} mins</p>
-                            <p>URL: <a href="${tutorial.url}" target="_blank">${tutorial.url}</a></p>
-                        `;
-                        descriptionCell.appendChild(videoDetails);
-                    }
-                    row.appendChild(descriptionCell);
+					// Check if the tutorial is a VideoTutorial (if `duration` and `url` are present)
+					if ('duration' in tutorial && 'url' in tutorial) {
+						const videoDetails = document.createElement('div');
+						videoDetails.classList.add('video-details');
+						videoDetails.innerHTML = `
+							<p><strong>Duration:</strong> ${tutorial.duration} mins</p>
+							<p><strong>URL:</strong> <a href="${tutorial.url}" target="_blank">${tutorial.url}</a></p>
+						`;
+						descriptionCell.appendChild(videoDetails);
+					}
+					row.appendChild(descriptionCell);
 
                     // Actions (Save Button)
                     const actionsCell = document.createElement('td');
