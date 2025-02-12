@@ -1,6 +1,0 @@
-//import { fetchData } from './api';
-//import type { Member } from '$lib/types/Member';
-//
-//export const fetchAllMembers = async (): Promise<Member[] | null> => {
-//    return fetchData<Member[]>('/members');
-//};
